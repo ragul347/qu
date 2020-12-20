@@ -13,7 +13,7 @@ static_dir=os.path.join(BASE_DIR,"static")
 SECRET_KEY = '6kyn&u*^&l7qq9p-b!so(e(jz$x-s#_^m+&^gf-(pyjdh0rnd%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['jollyquiz.herokuapp.com','127.0.0.1']
 
