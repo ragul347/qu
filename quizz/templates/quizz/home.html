@@ -1,0 +1,35 @@
+{% extends "quizz/basic.html" %}
+{% block base %}
+{% load static %}
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+  crossorigin="anonymous">
+  </head>
+    {% if user.is_authenticated %}
+<div class="container">
+    <div class="jumbotron" align='center'>
+      <h3>Quizzes</h3>
+      <form class="" action="{% url 'quizzz:questionpage'%}" method="post">
+      {%csrf_token%}
+    {% for s in subjects%}
+    <button class="btn btn-primary" name="q" value="{{s.subject_name}}" type="submit" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      {{s.dcount}}
+    </button>
+    {%endfor%}
+  </form>
+
+    {% else %}
+    <div class="jumbotron" align='center'>
+      <h3>Log in to continue!!</h3>
+      <br>
+      <a href="{% url 'user_login' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">LogIN</a>
+
+    </div>
+  </div>
+</div>
+
+
+    {% endif %}
+
+{% endblock %}
